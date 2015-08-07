@@ -1,6 +1,6 @@
 {
   "name": "ember-pricing-table",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha",
   "description": "Price table components for building pricing tables on bootstrap, materialize, or foundation",
   "directories": {
     "doc": "doc",
