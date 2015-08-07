@@ -1,3 +1,16 @@
-<h2 id="title">Welcome to Ember</h2>
+<h2 id="title">Materialize Version</h2>
 
+
+{{#em-pricing-table plans=model.plans chosenPlan=model.chosenPlan as |plan|}}
+  {{#em-pricing-card plan=plan}}
+    <li class="title"><h4>{{plan.planName}}</h4></li>
+    <li class="description">{{plan.description}}</li>
+    <li class="price">${{plan.price}} / month</li>
+    <li class="bullet-item">{{plan.availability}} hours / day</li>
+    <li class="bullet-item">{{plan.storage}} gbs</li>
+  {{/em-pricing-card}}
+{{/em-pricing-table}}
 {{outlet}}
+
+{{!-- ember-cli-materialize modal container --}}
+{{md-modal-container}}

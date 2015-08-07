@@ -1,0 +1,23 @@
+{{#if (eq flavor "materialize")}}
+  <div class="card center {{cardClassNames}}">
+    <div class="card-content {{cardContentClassNames}}" {{action "select"}}>
+      <ul class="price-features">
+        {{yield}}
+      </ul>
+    </div>
+    <div class="card-action">
+      <button class={{btnClassNames}} {{action "select"}}>
+        {{#if isSelected}}
+          <i class="fa fa-check-square-o left"></i>
+        {{else}}
+          <i class="fa fa-square-o left"></i>
+        {{/if}}
+        <span>{{btnText}}</span>
+      </button>
+    </div>
+  </div>
+{{else if (eq flavor "bootstrap")}}
+
+{{else if (eq flavor "foundation")}}
+
+{{/if}}
