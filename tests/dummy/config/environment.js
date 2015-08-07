@@ -40,8 +40,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    baseURL: '/ember-pricing-table',
-    locationType: 'hash',
+    ENV.baseURL = '/ember-pricing-table';
+    ENV.locationType = 'hash';
   }
 
   return ENV;
