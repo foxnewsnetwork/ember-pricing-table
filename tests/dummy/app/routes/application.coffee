@@ -27,7 +27,7 @@ PriceyPlan =
 
 AppRoute = Ember.Route.extend
   model: ->
-    plans: [BasicPlan, StandardPlan, SuperPlan, PriceyPlan]
+    plans: Ember.A [BasicPlan, StandardPlan, SuperPlan, PriceyPlan]
     chosenPlan: StandardPlan
 
 `export default AppRoute`

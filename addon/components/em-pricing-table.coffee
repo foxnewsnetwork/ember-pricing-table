@@ -1,8 +1,10 @@
 `import Ember from 'ember'`
+`import layout from '../templates/components/em-pricing-table'`
 
-alias = Ember.computed.alias
+{alias} = Ember.computed
 
 Co = Ember.Component.extend
+  layout: layout
   flavor: "materialize"
   fontFlavor: "fontawesome"
   value: alias "chosenPlan"
