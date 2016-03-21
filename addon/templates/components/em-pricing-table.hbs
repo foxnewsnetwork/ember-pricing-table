@@ -1,3 +1,3 @@
 {{#each plans as |plan|}}
-  {{yield plan}}
+  {{yield (hash table=this plan=plan)}}
 {{/each}}

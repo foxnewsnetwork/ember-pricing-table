@@ -3,10 +3,11 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    snippetPaths: ['tests/dummy/app/templates/snippets'],
     sassOptions: {
       includePaths: [
-        'bower_components/materialize/sass',
-        'bower_components/font-awesome/scss'
+        'bower_components/material-design-lite/src',
+        'bower_components/Materialize/sass'
       ]
     }
   });

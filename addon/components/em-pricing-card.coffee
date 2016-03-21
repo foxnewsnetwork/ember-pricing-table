@@ -11,34 +11,26 @@ equal = (key1, key2) ->
 materializeClasses = ["col", "s12", "m6", "l3"]
 bootstrapClasses = ["col-lg-3", "col-md-6", "col-sm-12", "col-xs-12"]
 foundationClasses = ["columns", "large-3", "medium-6", "small-12"]
+mdlClasses = ["mdl-cell", "mdl-cell--3-col", "mdl-cell--6-col-tablet", "mdl-cell--12-col-phone"]
 Co = Component.extend
   layout: layout
-  flavor: alias "parentView.flavor"
-  fontFlavor: alias "parentView.fontFlavor"
+  flavor: alias "table.flavor"
+  fontFlavor: alias "table.fontFlavor"
+  classNames: ["em-pricing-card"]
   classNameBindings: ["frameworkContainerClass"]
   frameworkContainerClass: computed "flavor", ->
     switch @get "flavor"
       when "materialize" then materializeClasses.join(" ")
       when "bootstrap" then bootstrapClasses.join(" ")
-      when "foundationClasses" then foundationClasses.join(" ")
+      when "foundation" then foundationClasses.join(" ")
+      when "mdl" then mdlClasses.join(" ")
       else ""
 
-  isSelected: equal "plan", "parentView.chosenPlan"
-  cardContentClassNames: ""
-  cardClassNames: computed "isSelected", ->
-    if @get "isSelected" then "z-depth-2 amber lighten-5"
-  btnClassNames: computed "flavor", "isSelected", ->
-    color = if @get("isSelected") then "red" else "grey"
-    frame = switch @get "flavor"
-      when "materialize"
-        "waves-light btn-large waves-effect waves-light red"
-      else ""
-    "#{frame} #{color}"
-  btnText: "whatever"
+  isSelected: equal "plan", "table.chosenPlan"
 
   actions:
     select: ->
-      @get("parentView")?.send "select", @get "plan"
+      @get("table")?.send "select", @get "plan"
 
 
 

@@ -1,2 +1,11 @@
-@import 'materialize';
-@import 'ember-cli-materialize';
+@import "bootstrap";
+@import "bootstrap/theme";
+
+@import "materialize";
+@import 'material-design-lite';
+
+.em-pricing-card {
+  .mdl-card {
+    width: 100%;
+  }
+}

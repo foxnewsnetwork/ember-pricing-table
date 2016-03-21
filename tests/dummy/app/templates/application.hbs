@@ -1,16 +1,19 @@
-<h2 id="title">Materialize Version</h2>
-
-
-{{#em-pricing-table plans=model.plans chosenPlan=model.chosenPlan as |plan|}}
-  {{#em-pricing-card plan=plan}}
-    <li class="title"><h4>{{plan.planName}}</h4></li>
-    <li class="description">{{plan.description}}</li>
-    <li class="price">${{plan.price}} / month</li>
-    <li class="bullet-item">{{plan.availability}} hours / day</li>
-    <li class="bullet-item">{{plan.storage}} gbs</li>
-  {{/em-pricing-card}}
-{{/em-pricing-table}}
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>{{#link-to "index"}}Ember Pricing Tables{{/link-to}}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h4>Usage</h4>
+      {{code-snippet name="-bootstrap.hbs"}}
+      {{#link-to "index"}}Back{{/link-to}}
+    </div>
+  </div>
+</div>
 {{outlet}}
-
-{{!-- ember-cli-materialize modal container --}}
-{{md-modal-container}}

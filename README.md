@@ -11,17 +11,23 @@ https://foxnewsnetwork.github.io/ember-pricing-table
 ## Usage
 As a stand-alone component
 ```handlebars
-{{#em-pricing-table plans=myPlans flavor="materialize" iconFlavor="fontawesome" action="selectPlan" as |plan|}}
-  {{#em-pricing-card plan=plan}}
-    <li class="title">{{plan.planName}}</li>
-    <li class="price">{{plan.price}}</li>
-    <li class="description">{{plan.description}}</li>
-    <li class="bullet-item">{{plan.availability}} / day</li>
-    <li class="bullet-item">{{plan.storage}} gbs</li>
+{{#em-pricing-table flavor="materialize" plans=model.plans chosenPlan=model.chosenPlan as |xx|}}
+  {{#em-pricing-card table=xx.table plan=xx.plan as |yields|}}
+    {{#yields.title}}{{xx.plan.planName}}{{/yields.title}}
+    {{#yields.description}}{{xx.plan.description}}{{/yields.description}}
+    {{#yields.price}}{{xx.plan.price}} / month{{/yields.price}}
+    {{#yields.bullet append=true}}{{xx.plan.availability}} hours / day{{/yields.bullet}}
+    {{#yields.bullet append=true}}{{xx.plan.availability}} gbs{{/yields.bullet}}
+    {{#yields.cta}}Select{{/yields.cta}}
   {{/em-pricing-card}}
 {{/em-pricing-table}}
 ```
 
+## Dependencies
+```
+ember-named-yields
+ember-truth-helpers
+```
 ## Installation
 
 * `git clone` this repository

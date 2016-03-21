@@ -14,6 +14,7 @@ Co = Ember.Component.extend
   cardContainerClass: Ember.computed "flavor", ->
     switch @get "flavor"
       when "materialize", "bootstrap" then "row"
+      when "mdl" then "mdl-grid"
       else ""
   actions:
     select: (plan) ->
