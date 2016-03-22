@@ -5,12 +5,18 @@
         <li class="title"><h4>{{named-yield "title" this}}</h4></li>
         <li class="description">{{named-yield "description" this}}</li>
         <li class="price">{{named-yield "price" this}}</li>
-        {{named-yield "bullet" this class="bullet-item" tagName="li"}}
+        {{yield (hash 
+          title=(component "block-for" "title" this)
+          description=(component "block-for" "description" this)
+          price=(component "block-for" "price" this)
+          cta=(component "block-for" "cta" this)
+          args=plan
+        )}}
       </ul>
     </div>
     <div class="card-action">
       <button class="waves-light btn-large waves-effect waves-light {{if isSelected "red" "grey"}}" {{action "select"}}>
-        {{#named-yield "cta" this}}
+        {{#named-yield "cta" this portal-class="em-pricing-card__cta"}}
           {{#if isSelected}}
             <i class="fa fa-check-square-o left"></i>
           {{else}}
@@ -28,13 +34,21 @@
     <div class="panel-body">{{named-yield "description" this}}</div>
     <div class="list-group">
       <div class="list-group-item">
-        <h4 class="list-group-item-pricing">{{named-yield "price" this}}</h4>
+        <h6 class="list-group-item-pricing">{{named-yield "price" this}}</h6>
       </div>
-      {{named-yield "bullet" this class="list-group-item"}}
     </div>
+    <ul class="list-group">
+      {{yield (hash 
+        title=(component "block-for" "title" this)
+        description=(component "block-for" "description" this)
+        price=(component "block-for" "price" this)
+        cta=(component "block-for" "cta" this)
+        args=plan
+      )}}
+    </ul>
     <div class="panel-footer">
       <button class="btn btn-{{if isSelected "primary" "default"}}" {{action "select"}}>
-        {{#named-yield "cta" this}}
+        {{#named-yield "cta" this portal-class="em-pricing-card__cta"}}
           {{#if isSelected}}
             <i class="fa fa-check-square-o left"></i>
           {{else}}
@@ -57,12 +71,18 @@
     </div>
     <div class="mdl-card__supporting-text">      
       <ul class="mdl-list">
-        {{named-yield "bullet" this class="mdl-list__item" tagName="li"}}
+        {{yield (hash 
+          title=(component "block-for" "title" this)
+          description=(component "block-for" "description" this)
+          price=(component "block-for" "price" this)
+          cta=(component "block-for" "cta" this)
+          args=plan
+        )}}
       </ul>
     </div>
     <div class="mdl-card__actions mdl-card--border">
       <button class="mdl-button mdl-js-button mdl-button--raised {{if isSelected "mdl-button--accent"}}" {{action "select"}}>
-        {{#named-yield "cta" this}}
+        {{#named-yield "cta" this portal-class="em-pricing-card__cta"}}
           {{#if isSelected}}
             <i class="fa fa-check-square-o left"></i>
           {{else}}
@@ -75,11 +95,3 @@
 {{else if (eq flavor "foundation")}}
 
 {{/if}}
-{{yield (hash 
-  title=(component "block-for" "title" this)
-  description=(component "block-for" "description" this)
-  price=(component "block-for" "price" this)
-  cta=(component "block-for" "cta" this)
-  bullet=(component "block-for" "bullet" this)
-  args=plan
-)}}

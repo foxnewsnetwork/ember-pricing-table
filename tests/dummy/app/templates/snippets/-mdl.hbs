@@ -1,15 +1,12 @@
-{{#em-pricing-table  
-  flavor="bootstrap" 
-  plans=model.plans 
-  chosenPlan=model.chosenPlan as |xx|}}
+{{#em-pricing-table flavor="mdl" plans=model.plans chosenPlan=model.chosenPlan as |xx|}}
   {{#em-pricing-card table=xx.table plan=xx.plan as |yields|}}
     {{#yields.title}}{{xx.plan.planName}}{{/yields.title}}
     {{#yields.description}}{{xx.plan.description}}{{/yields.description}}
     {{#yields.price}}{{xx.plan.price}} / month{{/yields.price}}
-    <li class="list-group-item">
+    <li class="mdl-list__item">
       {{xx.plan.availability}} hours / day
     </li>
-    <li class="list-group-item">
+    <li class="mdl-list__item">
       {{xx.plan.storage}} gbs
     </li>
     {{#yields.cta}}Select{{/yields.cta}}
